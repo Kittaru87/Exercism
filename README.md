@@ -2,5 +2,5 @@
 
 Daily TDD exercises
 
-- Ruby
-- JavaScript
+- Ruby + minitest
+- JavaScript + Jest
