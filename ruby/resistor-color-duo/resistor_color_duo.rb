@@ -12,7 +12,7 @@ module ResistorColorDuo
   
   def self.value(color_array)
    
-    color_array.map{|color| RESISTOR_VALUE.index(color)}.slice(0, 2).join.to_i
+    color_array.slice(0, 2).map{|color| RESISTOR_VALUE.index(color)}.join.to_i
 
   end
   
