@@ -10,10 +10,8 @@ module ResistorColorDuo
   
   RESISTOR_VALUE = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"]
   
-  def self.value(color_array)
-   
-    color_array.slice(0, 2).map{|color| RESISTOR_VALUE.index(color)}.join.to_i
-
+  def self.value(colors)
+    colors.first(2).map{|color| RESISTOR_VALUE.index(color)}.join.to_i
   end
   
 end
