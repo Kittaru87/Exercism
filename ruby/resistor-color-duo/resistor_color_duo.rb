@@ -8,7 +8,7 @@ To get started with TDD, see the `README.md` file in your
 
 module ResistorColorDuo
   
-  RESISTOR_VALUE = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"]
+  RESISTOR_VALUE = %w[black brown red orange yellow green blue violet grey white]
   
   def self.value(colors)
     colors.first(2).map{|color| RESISTOR_VALUE.index(color)}.join.to_i
