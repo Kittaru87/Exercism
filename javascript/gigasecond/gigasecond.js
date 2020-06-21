@@ -3,6 +3,8 @@
 // convenience to get you started writing code faster.
 //
 
+const GIGASECOND = 1e12
+
 export const gigasecond = (time) => {
-  return new Date(time.getTime() + 1000000000000)
+  return new Date(time.getTime() + GIGASECOND)
 };
