@@ -4,7 +4,7 @@
 //
 
 export class Clock {
-  constructor(hour, minute='00') {
+  constructor(hour, minute=0) {
     this.hour = hour;
     this.minute = minute;
   }
@@ -15,15 +15,11 @@ export class Clock {
     this.rolledOverHours();
     
     return `${this.dayHours()}:${this.dayMinutes()}`
- 
   }
 
   minTwoDigits(n) {
-    if (n < 0) {
-      let x = 24 + n
-      return (x < 10 ? '0' : '') + x;
-    }
-    return (n < 10 && n !== '00' ? '0' : '') + n;
+    n < 0 ? n += 24 : n
+    return (n < 10 ? '0' : '') + n;
   }
 
   dayHours() {
