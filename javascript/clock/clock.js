@@ -56,8 +56,8 @@ export class Clock {
     return (new Clock(this.hour, this.minute += n))
   }
 
-  minus() {
-    throw new Error('Remove this statement and implement this function');
+  minus(n) {
+    return (new Clock(this.hour, this.minute -= n))
   }
 
   equals() {
