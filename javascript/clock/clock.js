@@ -11,30 +11,38 @@ export class Clock {
 
 
   toString() {
+    this.rolledOverMinutes();
+
     if (this.hour < 25) {
       return `${this.dayHours()}:${this.dayMinutes()}`
     } 
       return `${this.rolledOverHours()}:${this.dayMinutes()}`
   }
 
+  minTwoDigits(n) {
+    return (n < 10 && n !== '00' ? '0' : '') + n;
+  }
+
   dayHours() {
-    if (this.hour < 10 ) {
-      return `0${this.hour}`
-    } else if (this.hour < 24) {
-      return this.hour
-    } else if (this.hour === 24 ) {
-      return '00'
-    }
+    return (this.hour === 24) ? '00' : this.minTwoDigits(this.hour) 
   }
 
   dayMinutes() {
-    return this.minute < 10 && this.minute !== '00' ? `0${this.minute}` : this.minute
+    return this.minTwoDigits(this.minute)
   }
 
   rolledOverHours() {
-    if (this.hour > 24) {
-      let newHours = this.hour % 24
-      return newHours < 10 ? `0${newHours}` : newHours
+    let newHours = this.hour % 24
+    return this.minTwoDigits(newHours)
+  }
+
+  rolledOverMinutes() {
+    if (this.minute === 60) {
+    this.hour = this.hour + 1 
+    this.minute = this.minute - 60
+    } else if (this.minute > 60) {
+      this.hour = Math.floor(this.minute / 60)
+      this.minute = this.minute % 60
     }
   }
 
