@@ -12,11 +12,11 @@ export class Clock {
 
   toString() {
     this.rolledOverMinutes();
-
-    if (this.hour < 25) {
-      return `${this.dayHours()}:${this.dayMinutes()}`
-    } 
-      return `${this.rolledOverHours()}:${this.dayMinutes()}`
+    
+    this.rolledOverHours();
+    
+    return `${this.dayHours()}:${this.dayMinutes()}`
+ 
   }
 
   minTwoDigits(n) {
@@ -32,8 +32,9 @@ export class Clock {
   }
 
   rolledOverHours() {
-    let newHours = this.hour % 24
-    return this.minTwoDigits(newHours)
+    if (this.hour > 24) {
+      this.hour = (this.hour % 24)
+    }
   }
 
   rolledOverMinutes() {
@@ -41,7 +42,7 @@ export class Clock {
     this.hour = this.hour + 1 
     this.minute = this.minute - 60
     } else if (this.minute > 60) {
-      this.hour = Math.floor(this.minute / 60)
+      this.hour = Math.floor(this.minute / 60) + this.hour
       this.minute = this.minute % 60
     }
   }
