@@ -20,6 +20,10 @@ export class Clock {
   }
 
   minTwoDigits(n) {
+    if (n < 0) {
+      let x = 24 + n
+      return (x < 10 ? '0' : '') + x;
+    }
     return (n < 10 && n !== '00' ? '0' : '') + n;
   }
 
@@ -32,15 +36,15 @@ export class Clock {
   }
 
   rolledOverHours() {
-    if (this.hour > 24) {
+    if (this.hour > 24 || this.hour < -24) {
       this.hour = (this.hour % 24)
-    }
+    } 
   }
 
   rolledOverMinutes() {
     if (this.minute === 60) {
-    this.hour = this.hour + 1 
-    this.minute = this.minute - 60
+      this.hour = this.hour + 1 
+      this.minute = this.minute - 60
     } else if (this.minute > 60) {
       this.hour = Math.floor(this.minute / 60) + this.hour
       this.minute = this.minute % 60
