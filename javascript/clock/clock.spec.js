@@ -62,7 +62,7 @@ describe('Clock', () => {
       expect(new Clock(1, -40).toString()).toEqual('00:20');
     });
 
-    xtest('negative minutes rolls over', () => {
+    test('negative minutes rolls over', () => {
       expect(new Clock(1, -160).toString()).toEqual('22:20');
     });
 
