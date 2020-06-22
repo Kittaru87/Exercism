@@ -48,6 +48,9 @@ export class Clock {
     } else if (this.minute > 60) {
       this.hour = Math.floor(this.minute / 60) + this.hour
       this.minute = this.minute % 60
+    } else if (this.minute < 0) {
+      this.hour = this.hour - 1
+      this.minute = 60 + this.minute
     }
   }
 

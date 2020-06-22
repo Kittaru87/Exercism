@@ -58,7 +58,7 @@ describe('Clock', () => {
       expect(new Clock(-91, 0).toString()).toEqual('05:00');
     });
 
-    xtest('negative minutes', () => {
+    test('negative minutes', () => {
       expect(new Clock(1, -40).toString()).toEqual('00:20');
     });
 
