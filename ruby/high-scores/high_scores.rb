@@ -1,15 +1,13 @@
 class HighScores
 
+  attr_reader :scores
+
   def initialize(scores)
     @scores = scores
   end
 
-  def scores
-    @scores
-  end
-
   def latest
-    scores[-1]
+    scores.last
   end
 
   def personal_best
