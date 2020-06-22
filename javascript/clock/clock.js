@@ -9,7 +9,6 @@ export class Clock {
     this.minute = minute;
   }
 
-
   toString() {
     this.rolledOverMinutes();
     
@@ -44,10 +43,10 @@ export class Clock {
   rolledOverMinutes() {
     if (this.minute === 60) {
       this.hour = this.hour + 1 
-      this.minute = this.minute - 60
+      this.minute = 0
     } else if (this.minute === -60) {
       this.hour = this.hour - 1
-      this.minute = this.minute + 60
+      this.minute = 0
     } else if (this.minute > 60) {
       this.hour = Math.floor(this.minute / 60) + this.hour
       this.minute = this.minute % 60
@@ -57,8 +56,8 @@ export class Clock {
     }
   }
 
-  plus() {
-    throw new Error('Remove this statement and implement this function');
+  plus(n) {
+    return (new Clock(this.hour, this.minute += n))
   }
 
   minus() {
