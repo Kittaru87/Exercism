@@ -74,11 +74,11 @@ describe('Clock', () => {
       expect(new Clock(2, -60).toString()).toEqual('01:00');
     });
 
-    xtest('negative hour and minutes both roll over', () => {
+    test('negative hour and minutes both roll over', () => {
       expect(new Clock(-25, -160).toString()).toEqual('20:20');
     });
 
-    xtest('negative hour and minutes both roll over continuously', () => {
+    test('negative hour and minutes both roll over continuously', () => {
       expect(new Clock(-121, -5810).toString()).toEqual('22:10');
     });
   });
