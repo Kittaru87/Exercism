@@ -70,7 +70,7 @@ describe('Clock', () => {
       expect(new Clock(1, -4820).toString()).toEqual('16:40');
     });
 
-    xtest('negative sixty minutes is previous hour', () => {
+    test('negative sixty minutes is previous hour', () => {
       expect(new Clock(2, -60).toString()).toEqual('01:00');
     });
 
