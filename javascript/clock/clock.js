@@ -31,7 +31,7 @@ export class Clock {
 
   rolledOverHours() {
     if (this.hour > 24 || this.hour < -24) {
-      this.hour = (this.hour % 24)
+      this.hour = this.hour % 24
     } 
   }
 
