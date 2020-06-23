@@ -4,6 +4,7 @@
 //
 
 export class Clock {
+
   constructor(hour, minute=0) {
     this.hour = hour;
     this.minute = minute;
@@ -11,14 +12,12 @@ export class Clock {
 
   toString() {
     this.rolledOverMinutes();
-    
     this.rolledOverHours();
-    
     return `${this.dayHours()}:${this.dayMinutes()}`
   }
 
   minTwoDigits(n) {
-    n < 0 ? n += 24 : n
+    n < 0 ? n += 24 : n;
     return (n < 10 ? '0' : '') + n;
   }
 
@@ -60,7 +59,7 @@ export class Clock {
     return (new Clock(this.hour, this.minute -= n))
   }
 
-  equals() {
-    throw new Error('Remove this statement and implement this function');
+  equals(newClock) {
+    return (newClock.toString() === this.toString()) ? true : false
   }
 }
