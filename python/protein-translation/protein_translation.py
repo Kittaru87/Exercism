@@ -1,3 +1,5 @@
+import textwrap
+
 def proteins(strand):
   
   PROTEINS = {
@@ -19,10 +21,14 @@ def proteins(strand):
 
   translation = []
 
-  try:
-    if PROTEINS[strand]:
-      translation.append(PROTEINS[strand])
-  except KeyError:
-     return translation
+  divided_strand = [strand[start:start+3] for start in range(0, len(strand), 3)]
+
+  for s in divided_strand:
+    try:
+      if PROTEINS[s]:
+        translation.append(PROTEINS[s])
+    except KeyError:
+      return translation
 
   return translation
+  
