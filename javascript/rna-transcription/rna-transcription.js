@@ -15,12 +15,9 @@ export const toRna = (letter) => {
   let rnaArray = []
 
   let splitLetters = letter.split("")
-
-  splitLetters.map(function(char){
-    if (Object.keys(RNA).includes(char)) {
+  
+  splitLetters.forEach((char) => {
       rnaArray.push(RNA[char])
-    }
-    return ''
     }
   )
 
