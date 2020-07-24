@@ -1,17 +1,13 @@
 class Matrix
 
-  attr_reader :string
+  attr_reader :string, :rows, :columns
 
   def initialize(string)
-    @string = string
+    @string = string.split("\n").map { |x| x.split }
   end
 
-  def split_string
-   string.split("\n").map { |x| x.split }
-  end 
-
   def rows
-    split_string.map{|row| row.map(&:to_i)}
+    string.map{|row| row.map(&:to_i)}
   end
 
   def columns
