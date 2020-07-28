@@ -1,13 +1,15 @@
 def convert(number):
-  rain = []
   
-  if number % 3 == 0:
-    rain.append("Pling")
-  if number % 5 == 0:
-    rain.append("Plang")
-  if number % 7 == 0:
-    rain.append("Plong")
-  if len(rain) == 0:
-    rain.append(str(number))
+  SOUNDS = {
+    3: "Pling",
+    5: "Plang",
+    7: "Plong",
+  }
 
-  return ''.join(rain)
+  rain = ''
+
+  for (key, value) in SOUNDS.items():
+    if number % key == 0:
+      rain += value
+
+  return rain or str(number)
