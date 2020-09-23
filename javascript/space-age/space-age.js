@@ -1,8 +1,3 @@
-//
-// This is only a SKELETON file for the 'Space Age' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 const PLANETS = {
   earth: 1.0,
   mercury: 0.2408467,
@@ -14,10 +9,16 @@ const PLANETS = {
   neptune: 164.79132,
 };
 
+const SECS_IN_YEAR = 31557600
+
+const twoDecimalPlaces = (number) => {
+  return Math.round(number * 100) / 100
+}
+
 export const age = (planet, seconds) => {
-  const earthSeconds = seconds / 31557600;
+  const earthSeconds = seconds / SECS_IN_YEAR;
 
-  let earthAge = (earthSeconds / PLANETS[planet]).toFixed(2);
+  const earthAge = twoDecimalPlaces(earthSeconds / PLANETS[planet]);
 
-  return parseFloat(earthAge);
+  return Number(earthAge);
 };
