@@ -20,14 +20,14 @@ export class BankAccount {
   close() {
     if (!this.openAccount) throw new ValueError()
 
-    return this.openAccount = false
+    this.openAccount = false
   }
 
   deposit(money) {
    if (!this.openAccount || money < 0) {
      throw new ValueError()
    }
-   
+
    this._balance += money
   }
 
