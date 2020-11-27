@@ -45,7 +45,6 @@ export class BankAccount {
     }
     return this._balance
   }
-
 }
 
 export class ValueError extends Error {
