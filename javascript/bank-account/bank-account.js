@@ -11,17 +11,15 @@ export class BankAccount {
   }
 
   open() {
-    if (this.openAccount) {
-      throw new ValueError()
-    }
-   this._balance = 0
-   this.openAccount = true
+    if (this.openAccount) throw new ValueError()
+    
+    this._balance = 0
+    this.openAccount = true
   }
 
   close() {
-    if (!this.openAccount) {
-      throw new ValueError()
-    }
+    if (!this.openAccount) throw new ValueError()
+
     return this.openAccount = false
   }
 
@@ -29,6 +27,7 @@ export class BankAccount {
    if (!this.openAccount || money < 0) {
      throw new ValueError()
    }
+   
    this._balance += money
   }
 
@@ -36,13 +35,13 @@ export class BankAccount {
     if (!this.openAccount || this._balance < money || money < 0) {
       throw new ValueError()
    }
+
     this._balance -= money
   }
 
   get balance() {
-    if (!this.openAccount) {
-      throw new ValueError()
-    }
+    if (!this.openAccount) throw new ValueError()
+  
     return this._balance
   }
 }
